@@ -1,0 +1,180 @@
+@import "fonts.css";
+@import "palette.scss";
+@import "style.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth !important;
+    --mouse-y: 0;
+    --mouse-x: 0;
+
+    --test-color: #{$primaryRed};
+    --hoverRotate: 10deg;
+    --floatCircle: 10px;
+}
+
+
+myfont {
+  font-family: var(--font-base);
+}
+
+html {}
+
+a {
+  color: unset;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Multiple, when not all are supported */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+}
+
+/* Everything in input field is centered*/
+input{
+    text-align:center;
+}
+
+/* Hide the up and down arrows for input number type */
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+
+// Global Scrollbar
+::-webkit-scrollbar {
+  //background: #{$lightRed};
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--lightestgrey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #{$lightRed};
+  border-radius: 10px;
+  border: 2px solid #{white};
+}
+
+
+/*
+  borderDividerStyle
+*/
+.borderDividerStyle {
+  border-top: 1px solid #{$primaryRed};
+  width: 100%;
+}
+
+/*
+  sectionPadding
+*/
+.sectionPadding {
+  margin-bottom: 40px
+}
+
+
+.footerLineContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  gap: 10px;
+
+  width: 100%;
+  height: 20px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.lineContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 20px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.line1 {
+  /* Line 2 */
+
+  width: auto;
+  height: 0px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.line2{
+
+  width: auto;
+  height: 0px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 3;
+  flex-grow: 1;
+}
+
+.lineContent {
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.cloud1 {
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cloud2 {
+  flex: none;
+  order: 4;
+  flex-grow: 0;
+}

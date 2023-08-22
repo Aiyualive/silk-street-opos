@@ -1,0 +1,25 @@
+/* FONTS */
+/*@font-face {*/
+/*    font-family: "SatoshiRegular";*/
+/*    src: local("SatoshiRegular"),*/
+/*    url("../../public/fonts/satoshi/Satoshi-Regular.ttf") format("truetype");*/
+/*}*/
+
+/* This is necessary otherwise regular fonts are bolded */
+@font-face {
+    font-family: "SatoshiMedium";
+    src: local("SatoshiMedium"),
+    url("../../public/fonts/satoshi/Satoshi-Medium.ttf") format("truetype");
+}
+
+/*@font-face {*/
+/*    font-family: "SatoshiBold";*/
+/*    src: local("SatoshiBold"),*/
+/*    url("../../public/fonts/satoshi/Satoshi-Bold.woff") format("woff");*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: "BasteleurBold";*/
+/*    src: local("BasteleurBold"),*/
+/*    url("../../public/fonts/basteleur/Basteleur-Bold.woff") format("woff");*/
+/*}*/
