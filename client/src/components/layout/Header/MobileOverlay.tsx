@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import { HeaderBurgerMenu, HeaderSocials } from "./HeaderSections";
+import { HeaderBurgerMenu, HeaderButtons } from "./HeaderSections";
 import Link from "next/link";
 import { Text } from "../../Text/TextComponent";
 import palette from "../../../styles/palette.module.scss";
@@ -43,7 +43,7 @@ export function MobileOverlay({ setOpenMenu }: MobileOverlayProps) {
             </Link>
 
             {/* Socials */}
-            <HeaderSocials scale={1} color={"text.secondary"} />
+            <HeaderButtons scale={1} color={"text.secondary"} />
         </Box>
     );
 }

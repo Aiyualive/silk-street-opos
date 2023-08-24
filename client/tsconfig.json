@@ -25,6 +25,7 @@
         "baseUrl": ".",
         "paths": {
             "@public/*": ["public/*"],
+            "@styles/*": ["src/styles/*"]
         },
         "lib": ["dom", "dom.iterable", "esnext"],
         "incremental": true

@@ -1,9 +1,8 @@
 import React from "react";
 import Screen from "../src/components/layout/Screen";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import { Main } from "../src/content/Home/Main";
 import { backendService } from "../service/backend";
+import { ReturnProduct } from "../models/product";
 
 export async function getStaticProps() {
     const products = await backendService.getProducts();
@@ -13,12 +12,10 @@ export async function getStaticProps() {
         },
     };
 }
-// TODO Add types
-export default function Index({ products }) {
-    const isMobile = useMediaQuery(useTheme().breakpoints.down("sm"));
+export default function Index({ products }: {products: ReturnProduct[]}) {
 
     return (
-        <Screen headerPosition={isMobile ? "static" : "relative"}>
+        <Screen>
             <Main products={products}/>
         </Screen>
     );

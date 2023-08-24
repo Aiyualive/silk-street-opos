@@ -1,6 +1,7 @@
 @import "fonts.css";
 @import "palette.scss";
 @import "style.scss";
+@import "divider.scss";
 
 @tailwind base;
 @tailwind components;
@@ -19,11 +20,6 @@
     --test-color: #{$primaryRed};
     --hoverRotate: 10deg;
     --floatCircle: 10px;
-}
-
-
-myfont {
-  font-family: var(--font-base);
 }
 
 html {}
@@ -76,105 +72,3 @@ input::-webkit-inner-spin-button {
   border: 2px solid #{white};
 }
 
-
-/*
-  borderDividerStyle
-*/
-.borderDividerStyle {
-  border-top: 1px solid #{$primaryRed};
-  width: 100%;
-}
-
-/*
-  sectionPadding
-*/
-.sectionPadding {
-  margin-bottom: 40px
-}
-
-
-.footerLineContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 20px;
-  gap: 10px;
-
-  width: 100%;
-  height: 20px;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-}
-
-.lineContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-
-  width: 100%;
-  height: 20px;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-}
-
-.line1 {
-  /* Line 2 */
-
-  width: auto;
-  height: 0px;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 1;
-}
-
-.line2{
-
-  width: auto;
-  height: 0px;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 3;
-  flex-grow: 1;
-}
-
-.lineContent {
-  /* Inside auto layout */
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-}
-
-.cloud1 {
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.cloud2 {
-  flex: none;
-  order: 4;
-  flex-grow: 0;
-}

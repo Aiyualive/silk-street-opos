@@ -12,10 +12,10 @@ export class ProductController {
 
     @ApiBody({ type: CreateProductDto })
     @Post('create')
-    async create(@Body() createProductDto: CreateProductDto): Promise<void> {
-        await this.productService.create(createProductDto);
-
-        //TODO: Add proper return type
+    async create(
+        @Body() createProductDto: CreateProductDto,
+    ): Promise<ReturnProductDTO> {
+        return await this.productService.create(createProductDto);
     }
 
     @Get('get')

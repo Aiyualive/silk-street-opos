@@ -10,7 +10,7 @@ export function CloseButton({buttonAction}) {
                 position: 'absolute',
                 right: 8,
                 top: 8,
-                color: (theme) => theme.palette.text.primary
+                color: (theme) => theme.palette.text.secondary
             }}
         >
             <CloseIcon/>

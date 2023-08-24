@@ -9,11 +9,7 @@ export class ProductService {
     constructor(private readonly sphereService: SphereService) {}
 
     async create(createProductDto: CreateProductDto) {
-        await this.sphereService.createProduct(createProductDto);
-
-        //TODO: Add proper return type
-
-        // return
+        return await this.sphereService.createProduct(createProductDto);
     }
 
     async findAll(query: GetProductParams): Promise<ReturnProductDTO[]> {

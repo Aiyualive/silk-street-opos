@@ -1,38 +1,10 @@
 import { CreateProductDto } from '../product/dto/create-product.dto';
 import fetch from 'node-fetch';
 import { GetProductParams } from '../product/dto/get-product-params';
-
-// TODO: what is the type of body
-// enforce http request types
-const options = (apiKey: string, method: string, body): RequestInit => {
-    switch (method) {
-        case 'POST':
-            return {
-                method: 'POST',
-                headers: {
-                    accept: 'application/json',
-                    'content-type': 'application/json',
-                    authorization: `Bearer ${apiKey}`,
-                },
-                body: JSON.stringify(body),
-            };
-        case 'GET':
-            return {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    authorization: `Bearer ${apiKey}`,
-                },
-            };
-        default:
-            throw new Error('Invalid method');
-    }
-};
-
-enum SphereEndpoints {
-    createProduct = 'https://api.spherepay.co/v1/product',
-    getAllProducts = 'https://api.spherepay.co/v1/product?',
-}
+import { options, requestWrapper } from '../utils/request';
+import { CreatePriceDto } from './dto/create-price.dto';
+import { sphereEndpoints } from './sphereMethods';
+import { CreatePaymentDto } from './dto/create-payment.dto';
 
 export class Sphere {
     private readonly apiKey: string;
@@ -41,31 +13,61 @@ export class Sphere {
     }
 
     async create(createProductDto: CreateProductDto) {
-        try {
-            const response = await fetch(
-                SphereEndpoints.createProduct,
-                options(this.apiKey, 'POST', createProductDto),
-            );
-
-            const data = await response.json();
-        } catch (err) {
-            throw new Error('Failed to create product');
-        }
+        const { url, method } = sphereEndpoints.createProduct;
+        const request = fetch(
+            url,
+            options(this.apiKey, method, createProductDto),
+        );
+        const res = await requestWrapper(() => request);
+        return res.product;
     }
 
     async listAllProducts(query: GetProductParams) {
-        try {
-            // Probably need some sanitization
-            const queryParams = new URLSearchParams(Object(query));
-            const response = await fetch(
-                SphereEndpoints.getAllProducts + queryParams.toString(),
-                options(this.apiKey, 'GET', []),
-            );
-            const { data } = await response.json();
+        const queryParams = new URLSearchParams(Object(query));
+        const { url, method } = sphereEndpoints.getAllProducts;
+        const request = await fetch(
+            url + queryParams.toString(),
+            options(this.apiKey, method, []),
+        );
 
-            return data.products;
-        } catch (err) {
-            throw new Error('Failed to create product');
-        }
+        const res = await requestWrapper(() => request);
+        return res.products;
+    }
+
+    async deleteProduct(productId: string) {
+        const { url, method } = sphereEndpoints.deleteProduct;
+        const request = await fetch(
+            url + productId,
+            options(this.apiKey, method, []),
+        );
+
+        const res = await requestWrapper(() => request);
+        return res;
+    }
+
+    /*
+     * Prices
+     */
+    async createPrice(createPriceDto: CreatePriceDto) {
+        const { url, method } = sphereEndpoints.createPrice;
+
+        const request = await fetch(
+            url,
+            options(this.apiKey, method, createPriceDto),
+        );
+        return await requestWrapper(() => request);
+    }
+
+    /*
+     * Payment
+     */
+    async createPayment(createPaymentDto: CreatePaymentDto) {
+        const { url, method } = sphereEndpoints.createPayment;
+
+        const request = await fetch(
+            url,
+            options(this.apiKey, method, createPaymentDto),
+        );
+        return await requestWrapper(() => request);
     }
 }

@@ -4,15 +4,10 @@ $borderRadiusSm: 8px;
 
 $webHeaderHeight: 80px;
 $mobileHeaderHeight: 78px;
-
 $viewportHeight: calc(100vh - #{$webHeaderHeight});
 $mobileViewportHeight: calc(100vh - #{$mobileHeaderHeight});
-$xNFTHeight: calc(100vh - 102px);
 
 
-$maxWindowHeightForPurchaseDialog: 850px;
-
-$iconSize: 24px;
 
 :export {
   borderRadiusLg: $borderRadiusLg;
@@ -21,9 +16,6 @@ $iconSize: 24px;
 
   viewportHeight: $viewportHeight;
   mobileViewportHeight: $mobileViewportHeight;
-  xNFTHeight: $xNFTHeight;
 
-  maxWindowHeightForPurchaseDialog: $maxWindowHeightForPurchaseDialog;
-
-  iconSize: $iconSize;
+  mainMaxWidth: 1440px;
 }

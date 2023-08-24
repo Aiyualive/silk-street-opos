@@ -103,7 +103,7 @@ function H5(props: Omit<TextProps, "variant">) {
 function H6(props: Omit<TextProps, "variant">) {
     const { color = "text.primary", children } = props;
     return (
-        <Text {...props} variant="h5" color={color}>
+        <Text {...props} variant="h6" color={color}>
             {children}
         </Text>
     );

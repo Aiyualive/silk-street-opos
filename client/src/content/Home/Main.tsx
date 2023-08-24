@@ -1,32 +1,16 @@
 import React from "react";
-import { GridContainer } from "../../components/Container/GridContainer";
-import { ProductContainer } from "../../components/Container/ProductContainer";
+import { Searchbar } from "../../components/Input/Searchbar";
+import { ReturnProduct } from "../../../models/product";
+import { Products } from "./Products";
 
-export function Main({products}) {
+interface Props {
+    products: ReturnProduct[];
+}
+export function Main({products}: Props) {
     return (
-        <div className="flex flex-row justify-center w-[95%] gap-x-8 pt-6">
-            <div className="mt-0 sm:mt-5 w-full">
-                {/* TICKETS */}
-                <GridContainer
-                    keyId={"MainPage"}
-                    ContentComponent={ProductContainer}
-                    data={products}
-                    itemsPerColumn={8}
-                    itemsPerPage={2}
-                    paddingX={0}
-                    pageIndex={0}
-                    spacing={0} // changes the padding
-                    itemProps={{
-                        marginLeft: "16px",
-                        marginTop: "16px",
-                    }}
-                />
-
-                {/* PAGINATION */}
-                {/*<div className="centerContainer flex pt-8">*/}
-                {/*    <Pagination count={Math.ceil(receipts.length / itemsPerPage)} page={page} onChange={handlePageChange} />*/}
-                {/*</div>*/}
-            </div>
+        <div className="flex flex-col w-full gap-y-4 pt-6 px-6">
+            <Searchbar/>
+            <Products products={products}/>
         </div>
     );
 }

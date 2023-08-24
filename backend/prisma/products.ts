@@ -3,7 +3,7 @@ import { ProductDto } from '../src/product/dto/product.dto';
 
 export const dummyProducts: ProductDto[] = [
     {
-        name: 'BurgerPFP',
+        name: 'BurgerPFP4',
         description: 'ready to flip burgers',
         images: ['https://www.blessedburgers.co/images/promo/bobpfp.png'],
         prices: [],

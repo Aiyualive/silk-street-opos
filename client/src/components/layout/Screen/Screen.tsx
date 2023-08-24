@@ -3,6 +3,8 @@ import {Header} from "../Header";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import { AppleWrapper } from "../../Container/AppleWrapper";
+import style from "../../../styles/style.module.scss";
+import palette from "../../../styles/palette.module.scss";
 
 const Base = styled(Box)(({ theme }) => ({
     position: "relative",
@@ -10,17 +12,17 @@ const Base = styled(Box)(({ theme }) => ({
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#160C18"
+    alignItems: "center",
+    backgroundColor: palette.contrastBlack
 }));
 
 const Body = styled(Box)(({ theme }) => ({
     width: "100%",
     height: "100%",
     display: "flex",
+    maxWidth: style.mainMaxWidth,
     flexDirection: "column",
     alignItems: "center",
-    // position: "relative"
-    // overflow: "hidden"
 }));
 
 interface ScreenProps {
@@ -33,7 +35,7 @@ export const Screen = ({ children, headerPosition = "static" }: ScreenProps) => 
     return (
         <Base>
             <Header headerPosition={headerPosition} />
-            
+
             <Body>
                 <AppleWrapper webComponent={children} />
             </Body>

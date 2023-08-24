@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import {MobileOverlay} from "./MobileOverlay";
-import {HeaderBurgerMenu, HeaderLogo, HeaderSocials,} from "./HeaderSections";
+import {HeaderBurgerMenu, HeaderLogo, HeaderButtons,} from "./HeaderSections";
 import {useRouter} from "next/router";
 
 export function StandardHeader({useMiddleButton = true}: {useMiddleButton?: boolean}) {
@@ -33,7 +33,7 @@ export function StandardHeader({useMiddleButton = true}: {useMiddleButton?: bool
                     sx={{marginRight: "16px"}}
                 >
                     {/*<DropdownMenu title="Menu" dropdownItems={infoSections} />*/}
-                    <HeaderSocials />
+                    <HeaderButtons />
                 </Box>
             </Box>
         </>
